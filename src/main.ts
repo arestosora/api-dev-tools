@@ -5,8 +5,8 @@ import { AllExceptionsFilter } from './lib/ExceptionFilter';
 
 async function main() {
   const app = await NestFactory.create(AppModule);
-  app.useGlobalFilters(new AllExceptionsFilter())
   app.useGlobalPipes(new ValidationPipe());
-  await app.listen(process.env.PORT || 3000);
+  app.useGlobalFilters(new AllExceptionsFilter())
+  await app.listen(process.env.PORT || 6000);
 }
 main();

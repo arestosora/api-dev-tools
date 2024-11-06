@@ -4,7 +4,7 @@ import { NextFunction, Response } from "express";
 @Injectable()
 export class AuthMiddleware implements NestMiddleware {
     use(req: Request, res: Response, next: NextFunction) {
-        const token = req.headers['Authorization'];
+        const token = req.headers['authorization']?.split(' ')[1]
         if (token && token === process.env.SECRET_KEY) {
             next();
         } else {

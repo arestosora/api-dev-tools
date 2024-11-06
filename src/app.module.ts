@@ -2,10 +2,10 @@ import { MiddlewareConsumer, Module, NestModule, RequestMethod } from '@nestjs/c
 import { TaskModule } from './task/task.module';
 import { PrismaService } from './prisma/prisma.service';
 import { AuthMiddleware } from './middlewares/auth';
+import { UsersModule } from './users/users.module';
 
 @Module({
-  imports: [TaskModule],
-  controllers: [],
+  imports: [TaskModule, UsersModule],
   providers: [PrismaService],
 })
 export class AppModule implements NestModule {
